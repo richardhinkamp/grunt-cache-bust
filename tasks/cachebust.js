@@ -178,7 +178,8 @@ module.exports = function(grunt) {
                         if (!result && fileResolved.substr(0, baseDirResolved.length) === baseDirResolved && (fileResolved.substr(baseDirResolved.length)) in assetMap) {
                             result = assetMap[fileResolved.substr(baseDirResolved.length)];
                             // if original file had baseDir at the start, make sure it's there now
-                            if(file.substr(0, baseDir.length) === baseDir) {
+                            var baseDirNormalized = path.normalize(baseDir);
+                            if(path.normalize(file).substr(0, baseDirNormalized.length) === baseDirNormalized) {
                                 result = baseDir + result;
                             }
                         }
@@ -189,6 +190,7 @@ module.exports = function(grunt) {
                 }
                 return file;
             });
+            console.log(originalConfig.src);
 
             return grunt.file
                 .expand(originalConfig, originalConfig.src)
