@@ -4,7 +4,6 @@ module.exports = {
         baseDir: 'tmp/sourceBusted2',
         deleteOriginals: true,
         hash: '123456789',
-        X: true
     },
     files: [{
         cwd: './tmp/sourceBusted2/',
