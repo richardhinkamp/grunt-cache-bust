@@ -190,7 +190,6 @@ module.exports = function(grunt) {
                 }
                 return file;
             });
-            console.log(originalConfig.src);
 
             return grunt.file
                 .expand(originalConfig, originalConfig.src)
